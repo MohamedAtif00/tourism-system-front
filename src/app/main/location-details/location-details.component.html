@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img width="600px" height="400px" [src]="getBase64Image(location.file)" alt="">
+        <h3>Shipment Details</h3>
+        <hr>
+        <p><strong>Title:</strong> {{ location.name }}</p>
+        <p><strong>Description:</strong> {{ location.description }}</p>
+        <!-- <p><strong>Status:</strong> {{ shipment.status }}</p>
+        <p><strong>Shipment Date:</strong> {{ shipment.shipmentDate }}</p>
+        <p><strong>Creation Date:</strong> {{ shipment.creationDate }}</p> -->
+        <hr>
+        <p><strong>Nearest Restourant:</strong> {{ location.nearestRestourant?.description }}</p>
+        <p><strong>Nearest Mall:</strong> {{ location.nearestMall?.description }}</p>
+        <p><strong>Nearest Hopital:</strong> {{ location.nearestHospital?.description }}</p>
+        <p><strong>Nearest Pharmacy:</strong> {{ location.nearestPharmacy?.description }}</p>
+        <!-- <h4>Start Location:</h4>
+        <p><strong>Address:</strong> {{ shipment.startLocationName }}</p>
+        <p><strong>state:</strong> {{ shipment.startLocation.state }}</p>
+        <p><strong>city:</strong> {{ shipment.startLocation.city }}</p>
+        <p *ngIf="shipment.startLocation.road"><strong>road:</strong> {{ shipment.startLocation.road }}</p>
+        <p *ngIf="shipment.startLocation.village"><strong>village:</strong> {{ shipment.startLocation.village }}</p>
+        <hr>
+        <h4>End Location:</h4>
+        <p><strong>Address:</strong> {{ shipment.endLocationName }}</p>
+        <p><strong>state:</strong> {{ shipment.endLocation.state }}</p>
+        <p><strong>city:</strong> {{ shipment.endLocation.city }}</p>
+        <p *ngIf="shipment.endLocation.road"><strong>road:</strong> {{ shipment.endLocation.road }}</p>
+        <p *ngIf="shipment.endLocation.village"><strong>village:</strong> {{ shipment.endLocation.village }}</p>
+        <hr> -->
+        <button class="btn btn-primary"  (click)="Book()">Book</button>
+      </div>
+      <div class="col-md-6">
+        <h3>Locations</h3>
+        <!-- <p><strong>Fuel Consumption:</strong> {{ fuelConsumption.toFixed(2) }} liters</p>
+        <p><strong>Fuel Cost:</strong> {{ fuelCost.toFixed(2) }} USD</p>
+        <p><strong>Cargo Cost:</strong> {{ cargoCost.toFixed(2) }} USD</p> -->
+        <!-- <p><strong>Total Cost:</strong> {{ shipment.cargo.totalCost.toFixed(2) }} USD</p> -->
+        <hr>
+        <div class="" id="map" style="width: 400px;height: 500px;"></div>
+      </div>
+    </div>
+  </div>

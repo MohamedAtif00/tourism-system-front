@@ -1,0 +1,68 @@
+
+<div class="container">
+    <h2>Create Tourist Place</h2>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="touristPlace.name" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="touristPlace.description" required></textarea>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-primary mb-3 " (click)="openModalTourismLocation()">Tourism Location</button>
+      </div>
+      <select class="form-select mb-2 " aria-label="Default select example" (change)="selected($event)">
+        <option selected>Select Tourism Type</option>
+        <option [value]="item.value" *ngFor="let item of touristTypes">{{item.type}}</option>
+        
+      </select>
+      <input class="form-control" type="file" (change)="onFileSelected($event)" accept="image/*">
+
+      <!-- <div class="mb-3">
+        <label for="longitude" class="form-label">Longitude</label>
+        <input type="number" step="any" class="form-control" id="longitude" name="longitude" [(ngModel)]="touristPlace.longitude" required>
+      </div> -->
+      <!-- <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" class="form-control" id="image" name="image" (change)="onFileSelected($event)" accept="image/*" required>
+      </div> -->
+        <button type="button" class="btn btn-primary mb-3 " (click)="openModalnNearestRestaurant()">Nearest Restaurant</button>
+        <div class="input-group mb-3">
+            <input type="text" #nearestRestaurant class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02" accept=".pdf">Nearest Restaurant</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mb-3 " (click)="openModalNearestMall()">Nearest Mall</button>
+        <div class="input-group mb-3">
+        <input type="text" #nearestMall class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02" accept=".pdf">Nearest Mall</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mb-3 " (click)="openModalnnearestHospital()"> Nearest Hospital</button>
+        <div class="input-group mb-3">
+        <input type="text" #nearestHospital class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02" accept=".pdf">Nearest Hospital</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mb-3 " (click)="openModalNearestPharmacy()">Nearest Pharmacy</button>
+        <div class="input-group mb-3">
+        <input type="text" #nearestPharmacy class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02" accept=".pdf">Nearest Pharmacy</label>
+        </div>
+
+      <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+
+  </div>
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div id="map" style="height: 400px;width: 100%;"></div>
+    </div>
+  </ng-template>

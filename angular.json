@@ -25,9 +25,17 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/glightbox/dist/css/glightbox.min.css",
+              "node_modules/aos/dist/aos.css",
+              "src/assets/leaflet/leaflet.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/aos/dist/aos.js",
+              "node_modules/glightbox/dist/js/glightbox.min.js"
+            ]
           },
           "configurations": {
             "production": {

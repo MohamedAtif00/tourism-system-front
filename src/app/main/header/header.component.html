@@ -1,0 +1,28 @@
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid justify-content-start container-xl position-relative d-flex align-items-center">
+  
+      <a href="index.html" class="logo d-flex align-items-center me-3">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="">TravelVista</h1>
+      </a>
+      <div class="d-flex justify-content-between w-100 h-100">
+  
+        <nav id="navmenu " class="navmenu w-100 ">
+          <ul class="d-flex  justify-content-start  ">
+            <li class="me-3 "><a href="index.html" class="active">Home</a></li>
+            <li><a [routerLink]="['tourism-list']">Browse Tourist places</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        <div class="fs-2 d-flex justify-content-between align-items-center w-50 " style="width: 350px;">
+          <div class="d-flex gap-3 " *ngIf="!auth.token">
+            <button class="btn btn-success  " [routerLink]="['auth','login']">Log in</button>
+            <button class="btn btn-primary " [routerLink]="['travlere-type-selection']">Register</button>
+          </div>
+          <button class="btn btn-danger" (click)="LogOut()" *ngIf="auth.token">Log out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  

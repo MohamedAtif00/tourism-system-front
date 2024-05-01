@@ -2,9 +2,9 @@
 
 
   <section id="gallery">
-    <div class="container">
-      <div class="row">
-      <div class="col-lg-4 mb-4 d-flex w-100 " >
+    <div class="container-fluit">
+      <div class="row h-100">
+      <div class=" mb-4 d-flex w-100 h-100" >
         <div class="card" *ngFor="let item of places" (click)="SelectLocation(item)" [routerLink]="['/category']" style="cursor: pointer;width: 300px;">
             <img [src]="getBase64Image(item)" alt="" class="card-img-top">
             <div class="card-body">

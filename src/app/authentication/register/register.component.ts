@@ -60,16 +60,17 @@ export class RegisterComponent implements OnInit {
 
      if(this.registerForm.valid)
      {
-       this.http.get<any>("http://api.ipify.org/?format=json").subscribe(ipresponse =>{
+      //  this.http.get<any>("http://api.ipify.org/?format=json").subscribe(ipresponse =>{
+        //this.authServ.Register().subscribe(ipresponse =>{
          
-         let ip  = ipresponse.ip;
-         console.log(ip);
+         //let ip  = ipresponse.ip;
+         //console.log(ip);
          let formdata = new FormData();
          let info:StudentRegister = {
            username:this.registerForm.controls['username'].value,
            email:this.registerForm.controls['email'].value,
            password:this.registerForm.controls['password'].value,
-           ip:ip
+          ip:''
          }
          formdata.append('email',info.email);
          formdata.append('username',info.username);
@@ -84,7 +85,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['']);
   
       });
-    });
+    //});
   } 
 }
 

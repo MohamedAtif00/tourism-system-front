@@ -1,4 +1,4 @@
-<section id="hero" class="hero section">
+<!-- <section id="hero" class="hero section">
 
   <img src="./../../../assets/img/pexels-tirachard-kumtanom-112571-450062.jpg" alt="" data-aos="fade-in">
 
@@ -11,7 +11,9 @@
     </div>
   </div>
 
-</section><!-- /Hero Section -->
+</section> -->
+
+<!-- /Hero Section -->
 
 <!-- About Section -->
 
@@ -44,7 +46,283 @@
 
 </section> -->
 <!-- /About Section -->
+<img src="./../../../assets/IMAGE2/pexels-photo-7566890.jpg" style=" position: relative;" width="100%">
+  
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top ">
+    <div class="container-fluid ">
+      <a class="navbar-brand text-white " href="#"><h1 class="div1">egyptXplore</h1></a>
+      <span class="mx-3 " ></span>
+      <button style="background-color: white;"  class="navbar-toggler   " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span style="background-color: white;" class="navbar-toggler-icon  "></span>
+    </button>
+      <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
+          <li class="nav-item active ">
+            <a class="nav-link text-white" aria-current="page" href="index.html">Home</a>
+          </li>
+          <span class="mx-3"></span>
+          <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['tourism-list']">Plan Your Trip</a>
+          </li>
+        </ul>
+        <form class="d-flex ">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="div3" type="submit">Search</button>
+        </form>
+          
 
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="favourt.html" aria-label="Wishlist">
+              <i class="fas fa-heart"></i>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['travlere-type-selection']" *ngIf="!auth.token">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white"  (click)="auth.Logout()" *ngIf="auth.token"> Sign out</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['auth','login']" *ngIf="!auth.token">Log In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+ 
+  </nav>
+ 
+  
+  
+  <section style="background-image: linear-gradient(to top, rgb(44, 43, 43) 85%, rgb(34, 33, 33), rgb(83, 82, 82)); padding: 50px; ">
+    <br><br><br><br><br>
+    <h1 style="color: white; text-align: center; font-size: 25px;">Explore</h1>
+    <h2 style="color: white; text-align: center;">Egypt in a variety of Ways</h2>
+    <br><br><br>
+  
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
+      <img style="border-radius: 10px; width: 100%; max-width: 300px;" src="./../../../assets/IMAGE2/2.jpg" alt="Image 1">
+      <img style="border-radius: 10px; width: 100%; max-width: 300px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0243.jpg" alt="Image 2">
+      <img style="border-radius: 10px; width: 100%; max-width: 300px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0244.jpg" alt="Image 3">
+    </div>
+    <br><br><br><br><br>
+    <!-- <h1 style="color: white;  text-align: center; font-size:25px;">best</h1>
+    <h1 style="color: white;  text-align: center;">Cities to visit</h1>
+    <br><br>
+   
+  
+      <div class="div2 " style="margin: 10px;">
+        <div><a href="EgyXplore\city.html"><img style="border-radius: 10px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0249.jpg" width="400px" height="400px" alt=""></a></div>
+        <div><a href="EgyXplore\city.html"><img style="border-radius: 10px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0247.jpg" width="400px" height="400px" alt=""></a></div>
+        <div><a href="EgyXplore\city.html"><img style="border-radius: 10px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0248.jpg" width="400px" height="400px" alt=""></a></div>
+         <div><a href="EgyXplore\city.html"><img  style="border-radius: 10px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0196.jpg" width="400px" height="400px" alt=""></a></div>
+          <div><a href="EgyXplore\city.html"><img style="border-radius: 10px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0234.jpg" width="400px" height="400px" alt=""></a></div>
+          <div><a href="EgyXplore\city.html"><img  style="border-radius: 10px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0235.jpg" width="400px" height="400px" alt=""></a></div>
+      </div>
+    
+    <br><br><br><br><br> <br><br><br> -->
+
+      <h1 style="color: white; font-size: 25px; text-align: center;">Interests</h1>
+      <h1 style="color: white;  text-align: center;" >Create your  ideal journey</h1>
+      <br><br><br>
+     
+
+     <div class="container">
+      <div class="row">
+      
+          <div class="  col-xxl-4  col-xl-6  col-lg-6 col-md-12 col-sm-12 ">
+            <img style="border-radius: 10px;" src="./../../../assets/IMAGE2/8.jpg" width="400px" height="300px" alt="">
+            
+          </div>
+          <div class=" col-xxl-4 col-xl-6  col-lg-6 col-md-12 col-sm-12 ">
+            <img style="border-radius: 10px;" src="./../../../assets/IMAGE2/9.jpg" width="400px" height="300px" alt="">
+            
+          </div>
+          <div class=" col-xxl-4  col-xl-12  col-lg-12  col-md-12  col-sm-12 ">
+            <img style="border-radius: 10px;" src="./../../../assets/IMAGE2/6.jpg" width="400px" height="300px" alt="">
+            
+          </div>
+        
+        
+
+      </div>
+     </div><br><br>
+
+     <div class="container">
+      <div class="row">
+      
+          <div class="  col-xxl-4  col-xl-6  col-lg-6 col-md-12 col-sm-12 ">
+            <img style="border-radius: 10px;" src="./../../../assets/IMAGE2/7.jpg" width="400px" height="300px" alt="">
+            
+          </div>
+          <div class=" col-xxl-4 col-xl-6  col-lg-6 col-md-12 col-sm-12 ">
+            <img style="border-radius: 10px;" src="./../../../assets/IMAGE2/4.jpg" width="400px" height="300px" alt="">
+            
+          </div>
+          <div class=" col-xxl-4  col-xl-12  col-lg-12  col-md-12  col-sm-12 ">
+            <img style="border-radius: 10px;" src="./../../../assets/IMAGE2/5.jpg" width="400px" height="300px" alt="">
+            
+          </div>
+        
+        
+
+      </div>
+     </div>
+     <br><br><br><br><br><br><br>
+     <div class="container">
+      <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <h1 style="color: white; font-size: 25px;">Useful Information</h1>
+      <h1 style="color: white;" > All the information you 
+        </h1>
+        <h1 style="color: white;">need to plan a trip to 
+          </h1>
+        <h1 style="color: white;">Egypt</h1>
+        </div>
+     
+    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+      <div>
+       <div style="padding: 2px;">
+        <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0194.jpg" width="300px" height="200px" alt="">
+        <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0192.jpg" width="300px" height="200px" alt="">
+       </div>
+        <div style="padding: 2px;">
+          <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0193.jpg" width="300px" height="200px" alt="">
+          <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0189.jpg" width="300px" height="200px" alt="">
+        </div>
+    </div>
+      </div>
+     </div>
+    </div>
+    <div style="margin-left: 10px;">
+      <div style="padding: 2px;">
+        <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0188.jpg" width="300px" height="200px" alt="">
+      <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0187.jpg" width="300px" height="200px" alt="">
+      </div>
+      <div style="padding: 2px;">
+        <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0186.jpg" width="300px" height="200px" alt="">
+        <img style="border-radius: 5px;" src="./../../../assets/IMAGE2/IMG-20240226-WA0185.jpg" width="300px" height="200px" alt="">
+      </div> <br><br><br><br><br><br><br><br><br><br>
+
+
+       
+    
+    
+      </div>
+  </section>
+
+  <section  style="background-color: orange; height: 400px;">
+     <br>
+    
+      <div  class="container">
+        <div class="row">
+          <div style="border-right: 1px solid white;" class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6">
+            <h1 style="font-size: 25px; color: white;">INFORMATION ON THE WEBSITE</h1>
+          <ul style="color: white; list-style: none; padding: 0;">
+            <li><a href="#" class="nav-link text-white">Privacy policy</a></li>
+            <li><a href="#" class="nav-link text-white">Cookie Policy</a></li>
+            <li><a href="#" class="nav-link text-white">Accessibility</a></li>
+            <li><a href="#" class="nav-link text-white">Terms and conditions</a></li>
+            <li><a href="#" class="nav-link text-white">Contact us</a></li>
+          </ul>
+          </div>
+          <div style="border-right: 1px solid white;"  class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6"> 
+            <h1 style="font-size: 25px; color: white;">SUBSCRIBE TO OUR NEWEST</h1><br>
+          <div class="d-flex align-items-center ">
+            <input type="email" class="form-control me-2" style="border-radius: 20px; width: 250px;" placeholder="Email Address">
+            <button class="btn btn-primary" style="background-color:orange; border: none;  margin-left:  -60px; border-radius: 20px;" type="button">join</button>
+          </div>
+          </div>
+          <div  class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-12"> 
+            <h1 style="color: white; font-size: 25px;">log in</h1>
+            <a href="log in.html" style="font-size: 20px; color: white;" class="nav-link" > Log in</a>
+            <a href="registration.html" style="font-size: 20px; color: white;" class="nav-link"> sign up</a>
+          </div>
+        </div>
+      </div>
+      
+    
+    
+   <br><br> <br> <br> 
+
+      <h1 style="color: white; text-align: center; font-size: 15px;">@ By students of October 6 University</h1>
+  
+  
+  
+  
+  </section>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+<script src="./../../../assets/slick.min.js"></script>
+  <script src="./../../../assets/bootstrap.bundle.min.js"></script>
+  <script src="./../../../assets/main3.js"></script>
+  <script>
+    $('.div2').slick({
+    centerMode: true,
+    centerPadding: '60px',
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+  </script> -->
 
 
 

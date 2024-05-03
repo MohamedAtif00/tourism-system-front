@@ -9,6 +9,7 @@ import { StudentLoginResponse, DonorLoginResponse } from "../model/Response/logi
 import { StudentRegisterResponse } from "../model/Response/register.response";
 import { environment } from "src/environment/environment";
 import { UserModel } from "src/app/Core/model/user.model";
+import { formdata } from "../register/register.component";
 
 
 @Injectable({
@@ -30,11 +31,12 @@ export class AuthService{
     token!:string | null
 
     constructor(private http:HttpClient){
-
+        
         this.token = localStorage.getItem('User_Token_Key')
         if(this.token)
-             this.http.get<any>(this.getAllowAccess+this.token).subscribe(data=>{
-                this.user = {id:data.userId,username:data.username,email:data.email,role:data.role,token:data.token,tourismType:data.type}
+        this.http.get<any>(this.getAllowAccess+this.token).subscribe(data=>{
+            this.user = {id:data.userId,username:data.username,email:data.email,role:data.role,token:data.token,tourismType:data.tourismType}
+            //console.log('service',this.user);
         })
     }
 
@@ -74,9 +76,11 @@ export class AuthService{
 
     Register(studentInfo:FormData)
     {
+        console.log(formdata);
+        
         return this.http.post<StudentRegisterResponse>(this.postStudentRegister,studentInfo)
         .pipe(map(data=>{
-            this.user = {id:data.value.userId,username:data.value.username,email:'',role:data.value.role,token:data.value.jwtToken,tourismType:data.value.type}
+            this.user = {id:data.value.userId,username:data.value.username,email:'',role:data.value.role,token:data.value.jwtToken,tourismType:data.value.tourismType}
             localStorage.setItem('User_Token_Key',data.value.jwtToken)
             this.token = this.GetToken()
             return data;

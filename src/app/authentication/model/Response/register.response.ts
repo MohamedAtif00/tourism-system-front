@@ -4,7 +4,7 @@ export interface StudentRegisterResponse{
         role:string,
         username:string,
         jwtToken:string,
-        type:number
+        tourismType:number
     }
 }
 

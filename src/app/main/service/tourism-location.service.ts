@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { GeneralResponse } from "src/app/Core/model/general.response";
 import { TourismLocation } from "src/app/admin/model/create-tourism-location.request";
+import { AuthService } from "src/app/authentication/service/auth.service";
 import { environment } from "src/environment/environment";
 
 
@@ -14,10 +15,12 @@ export class TourismLocationService{
 
     getAll:string = `${environment.localhost}TourismLocation/GetAll/`
     book:string = `${environment.localhost}TourismLocation/Book`
-    constructor(private http:HttpClient){}
+    constructor(private http:HttpClient,private authServ:AuthService){}
 
     GetAll(type:number)
     {
+        console.log('get all ',this.authServ.user.tourismType);
+        
         return this.http.get<GeneralResponse<TourismLocation[]>>(this.getAll+type);
     }
 

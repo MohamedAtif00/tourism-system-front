@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { StudentRegister } from '../model/Request/register.request';
 import { SelecttionService } from 'src/app/Core/service/selection.service';
 
+export let formdata = new FormData();
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm!:FormGroup;
 
-  constructor(private authServ:AuthService,private router:Router,private http:HttpClient,private selection:SelecttionService){}
+  constructor(private authServ:AuthService,private router:Router,private http:HttpClient){}
 
 
   ngOnInit(): void {
@@ -65,7 +67,7 @@ export class RegisterComponent implements OnInit {
          
          //let ip  = ipresponse.ip;
          //console.log(ip);
-         let formdata = new FormData();
+         //let formdata = new FormData();
          let info:StudentRegister = {
            username:this.registerForm.controls['username'].value,
            email:this.registerForm.controls['email'].value,
@@ -75,16 +77,16 @@ export class RegisterComponent implements OnInit {
          formdata.append('email',info.email);
          formdata.append('username',info.username);
          formdata.append('password',info.password);
-         formdata.append('TourismType',this.selection.selected.toString());
+         //formdata.append('TourismType',this.selection.selected.toString());
 
-      this.authServ.Register(formdata).subscribe((data)=>{
+      // this.authServ.Register(formdata).subscribe((data)=>{
         
-        console.log(data);
+      //   console.log(data);
   
-        if(data.value) 
-          this.router.navigate(['']);
+      //   if(data.value) 
+          this.router.navigate(['travlere-type-selection']);
   
-      });
+      // });
     //});
   } 
 }

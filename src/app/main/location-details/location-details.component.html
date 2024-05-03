@@ -6,10 +6,17 @@
         <hr>
         <p><strong>Title:</strong> {{ location.name }}</p>
         <p><strong>Description:</strong> {{ location.description }}</p>
+
+        <p *ngIf="location.a"><strong>Plan A:</strong> {{ location.a.from }} To {{location.a.to}}</p>
+        <p *ngIf="location.b"><strong>Plan B:</strong> {{ location.b.from }} To {{location.b.to}}</p>
+        <p *ngIf="location.c"><strong>Plan C:</strong> {{ location.c.from }} To {{location.c.to}}</p>
+
+
         <!-- <p><strong>Status:</strong> {{ shipment.status }}</p>
         <p><strong>Shipment Date:</strong> {{ shipment.shipmentDate }}</p>
         <p><strong>Creation Date:</strong> {{ shipment.creationDate }}</p> -->
         <hr>
+        <p><strong>Nearest Hotl:</strong> {{ location.nearestHotel?.description }}</p>
         <p><strong>Nearest Restourant:</strong> {{ location.nearestRestourant?.description }}</p>
         <p><strong>Nearest Mall:</strong> {{ location.nearestMall?.description }}</p>
         <p><strong>Nearest Hopital:</strong> {{ location.nearestHospital?.description }}</p>

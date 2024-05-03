@@ -14,8 +14,8 @@ import { SelectWhoComingComponent } from '../select-who-coming/select-who-coming
 const routes:Routes =[
   {path:'',component:MainComponent,children:[
     {path:'',component:HomeComponent},
-    {path:'tourism-list',component:CategoryComponent,canActivate:[CategoryCanActivate]},
-    {path:'category',component:LocationDetailsComponent},
+    {path:'tourism-details',component:LocationDetailsComponent,canActivate:[CategoryCanActivate]},
+    {path:'category',component:CategoryComponent},
     {path:'type-selection',component:SelectTourismTypeComponent},
     {path:'who-selection',component:SelectWhoComingComponent},
     {path:'travlere-type-selection',component:SelectTravelerTypeComponent},

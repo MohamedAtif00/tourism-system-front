@@ -3,7 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as L from 'leaflet'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LocationInfoModel } from 'src/app/Core/model/location-info.model';
-import { TourismLocationService } from '../service/tourism-location.service';
+import { TourismLocationServicee } from '../service/tourism-location.service';
 import { RealLocationModel } from 'src/app/Core/real-location.model';
 import { TourismLocation } from '../model/create-tourism-location.request';
 
@@ -37,11 +37,22 @@ export class TouristPlaceCreationComponent {
   
   selectedPoint: { latitude: number, longitude: number} | null = null;
   @ViewChild('template') template: any;
+  @ViewChild('nearestHotel') NearestHotel!: ElementRef;
   @ViewChild('nearestRestaurant') NearestRestaurant!: ElementRef;
   @ViewChild('nearestMall') NearestMall!: ElementRef;
   @ViewChild('nearestHospital') NearestHospital!: ElementRef;
   @ViewChild('nearestPharmacy') NearestPharmacy!: ElementRef;
   @ViewChild('tourismLocation') TourismLocation!: ElementRef;
+
+  @ViewChild('aFrom') AFrom!: ElementRef;
+  @ViewChild('aTo') ATo!: ElementRef;
+  @ViewChild('bFrom') BFrom!: ElementRef;
+  @ViewChild('bTo') BTo!: ElementRef;
+  @ViewChild('cFrom') CFrom!: ElementRef;
+  @ViewChild('cTo') CTo!: ElementRef;
+
+
+
   
   modalRef!: BsModalRef;
   map: any;
@@ -59,13 +70,17 @@ export class TouristPlaceCreationComponent {
     latitude: null,
     longitude: null,
     file:null,
+    a:null,
+    b:null,
+    c:null,
+    nearestHotel:null,
     nearestRestourant:null,
     nearestMall:null,
     nearestHospital:null,
     nearestPharmacy:null
   };
 
-  constructor(private modalService:BsModalService,private http:HttpClient,private tourismLocationServ:TourismLocationService) { }
+  constructor(private modalService:BsModalService,private http:HttpClient,private tourismLocationServ:TourismLocationServicee) { }
 
   onSubmit() {
     console.log(this.touristPlace);
@@ -76,6 +91,19 @@ export class TouristPlaceCreationComponent {
     formData.append('tourismType', this.touristPlace.tourismType?.toString()||'');
     formData.append('latitude', this.touristPlace.latitude?.toString() || '');
     formData.append('longitude', this.touristPlace.longitude?.toString() || '');
+    formData.append('image', this.touristPlace.file!);
+
+    formData.append('a.from', this.AFrom.nativeElement.value);
+    formData.append('a.to', this.ATo.nativeElement.value);
+    formData.append('b.from', this.BFrom.nativeElement.value);
+    formData.append('b.to', this.BTo.nativeElement.value );
+    formData.append('c.from', this.CFrom.nativeElement.value );
+    formData.append('c.to', this.CTo.nativeElement.value);
+
+
+    formData.append('NearestHotel.Description', this.touristPlace.nearestHotel!.description);
+    formData.append('NearestHotel.Latitude', this.touristPlace.nearestHotel!.latitude.toString());
+    formData.append('NearestHotel.Longitude', this.touristPlace.nearestHotel!.longitude.toString());
     formData.append('NearestRestourant.Description', this.touristPlace.nearestRestourant!.description);
     formData.append('NearestRestourant.Latitude', this.touristPlace.nearestRestourant!.latitude.toString());
     formData.append('NearestRestourant.Longitude', this.touristPlace.nearestRestourant!.longitude.toString());
@@ -88,9 +116,9 @@ export class TouristPlaceCreationComponent {
     formData.append('nearestPharmacy.Description', this.touristPlace.nearestPharmacy!.description);
     formData.append('nearestPharmacy.Latitude', this.touristPlace.nearestPharmacy!.latitude.toString());
     formData.append('nearestPharmacy.Longitude', this.touristPlace.nearestPharmacy!.longitude.toString());
-    formData.append('image', this.touristPlace.file!);
 
-
+    console.log(formData);
+    
 
     this.tourismLocationServ.CreateTourismLocation(formData,this.http)
       .subscribe(
@@ -116,6 +144,11 @@ export class TouristPlaceCreationComponent {
   //   }
   // }
 
+
+  openModalnNearestHotel() {
+    this.modalRef = this.modalService.show(this.template);
+    this.initMap('nearestHotel');
+  }
 
   openModalnNearestRestaurant() {
     this.modalRef = this.modalService.show(this.template);
@@ -228,6 +261,16 @@ export class TouristPlaceCreationComponent {
           //console.log(this.nearestPharmacy);
           
           //this.TourismLocation.nativeElement.value = this.touristPlace.description;
+        }else if(location === "nearestHotel")
+        {
+          this.touristPlace.nearestHotel = {
+            latitude: data.lat,
+            longitude: data.lon,
+            description:data.display_name
+          };
+          console.log(this.nearestMall);
+          
+          this.NearestHotel.nativeElement.value = this.touristPlace.nearestHotel.description;
         }
       },
       (error:any) => {
@@ -259,5 +302,6 @@ export class TouristPlaceCreationComponent {
     console.log(e.target.value);
     this.touristPlace.tourismType = e.target.value
   }
+
 
 }

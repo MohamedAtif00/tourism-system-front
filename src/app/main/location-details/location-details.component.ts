@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/authentication/service/auth.service';
 export class LocationDetailsComponent implements OnInit{
 
   map!:L.Map;
+  nearestHotel!:L.Marker;
   nearestRestourant!:L.Marker;
   nearestMall!:L.Marker;
   nearesHospital!:L.Marker;
@@ -30,6 +31,7 @@ export class LocationDetailsComponent implements OnInit{
 
     console.log('locationId',this.location.id);
     console.log('user id',this.authServ.user.id);
+    console.log(this.location.nearestHotel);
     
   }
 
@@ -42,7 +44,8 @@ export class LocationDetailsComponent implements OnInit{
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
-  
+    
+    this.nearestHotel = L.marker([this.location.nearestHotel?.latitude??0, this.location.nearestHotel?.longitude??0]).addTo(this.map).bindPopup('nearestHotel').openPopup();
     this.nearestRestourant = L.marker([this.location.nearestRestourant?.latitude??0, this.location.nearestRestourant?.longitude??0]).addTo(this.map).bindPopup('nearestRestourant').openPopup();
     this.nearestMall = L.marker([this.location.nearestMall?.latitude??0, this.location.nearestMall?.longitude??0]).addTo(this.map).bindPopup('nearestMall').openPopup();
     this.nearesHospital = L.marker([this.location.nearestHospital?.latitude??0, this.location.nearestHospital?.longitude??0]).addTo(this.map).bindPopup('nearestHospital').openPopup();

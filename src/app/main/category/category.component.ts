@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TourismLocationService } from '../service/tourism-location.service';
 import { TourismLocation } from 'src/app/admin/model/create-tourism-location.request';
 import { AuthService } from 'src/app/authentication/service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -13,24 +14,28 @@ export class CategoryComponent implements OnInit{
 
   places!:TourismLocation[];
   
-  constructor(private tourismServ:TourismLocationService,private authServ:AuthService){}
+  constructor(private tourismServ:TourismLocationService,private authServ:AuthService,private router:Router){}
 
   
   ngOnInit(): void {
+    this.authServ.AllowAccessToken().subscribe(data=>{
 
-    console.log(this.authServ.user);
-    
-    this.tourismServ.GetAll(this.authServ.user.tourismType).subscribe(data=>{
-      console.log(data);
-      console.log(data.value);
+      console.log(this.authServ.GetToken());
       
-      if(data.value)
-        this.places = data.value;
-        console.log(this.places);
-
-
+      this.tourismServ.GetAll(this.authServ.user.tourismType).subscribe(data=>{
+  
+        console.log(data);
+        console.log(data.value);
         
-    });
+        if(data.value)
+          this.places = data.value;
+          console.log(this.places);
+  
+  
+          
+      });
+
+    })
   }
   getBase64Image(place:TourismLocation) {
     return 'data:image/jpeg;base64,' + place?.file;
@@ -55,6 +60,8 @@ export class CategoryComponent implements OnInit{
   SelectLocation(item:TourismLocation)
   {
     this.tourismServ.selectedLocation  = item;
+
+    this.router.navigate(['tourism-details']);
   }
 
 

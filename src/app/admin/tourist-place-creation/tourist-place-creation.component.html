@@ -28,6 +28,30 @@
         <label for="image" class="form-label">Image</label>
         <input type="file" class="form-control" id="image" name="image" (change)="onFileSelected($event)" accept="image/*" required>
       </div> -->
+      <div >
+        <label for="from">Plan A</label>
+        <input type="number" id="from"  #aFrom>
+        <label for="to">To</label>
+        <input type="number" id="to" #aTo>
+      </div>
+      <div >
+        <label for="from">Plan B</label>
+        <input type="number" id="from" #bFrom>
+        <label for="to">To</label>
+        <input type="number" id="to" #bTo>
+      </div>
+      <div >
+        <label for="from">Plan C</label>
+        <input type="number" id="from" #cFrom>
+        <label for="to">To</label>
+        <input type="number" id="to" #cTo>
+      </div>
+      <button type="button" class="btn btn-primary mb-3 " (click)="openModalnNearestHotel()">Nearest Hotel</button>
+        <div class="input-group mb-3">
+            <input type="text" #nearestHotel class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02" accept=".pdf">Nearest Hotel</label>
+        </div>
+
         <button type="button" class="btn btn-primary mb-3 " (click)="openModalnNearestRestaurant()">Nearest Restaurant</button>
         <div class="input-group mb-3">
             <input type="text" #nearestRestaurant class="form-control" id="inputGroupFile02">

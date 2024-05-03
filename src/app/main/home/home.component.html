@@ -62,7 +62,7 @@
           </li>
           <span class="mx-3"></span>
           <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['tourism-list']">Plan Your Trip</a>
+            <a class="nav-link text-white" [routerLink]="['category']">Plan Your Trip</a>
           </li>
         </ul>
         <form class="d-flex ">
@@ -79,7 +79,7 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['travlere-type-selection']" *ngIf="!auth.token">Sign Up</a>
+            <a class="nav-link text-white" [routerLink]="['auth','register']" *ngIf="!auth.token">Sign Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white"  (click)="auth.Logout()" *ngIf="auth.token"> Sign out</a>

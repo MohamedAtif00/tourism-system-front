@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { StudentRegister } from '../model/Request/register.request';
 import { SelecttionService } from 'src/app/Core/service/selection.service';
 
-export let formdata = new FormData();
+
 
 @Component({
   selector: 'app-register',
@@ -74,16 +74,17 @@ export class RegisterComponent implements OnInit {
            password:this.registerForm.controls['password'].value,
           ip:''
          }
-         formdata.append('email',info.email);
-         formdata.append('username',info.username);
-         formdata.append('password',info.password);
+         this.authServ.formdata = new FormData();
+         this.authServ.formdata.append('email',info.email);
+         this.authServ.formdata.append('username',info.username);
+         this.authServ.formdata.append('password',info.password);
          //formdata.append('TourismType',this.selection.selected.toString());
 
-      // this.authServ.Register(formdata).subscribe((data)=>{
+      //this.authServ.Register().subscribe((data)=>{
         
-      //   console.log(data);
+       //console.log(data);
   
-      //   if(data.value) 
+      //if(data.value) 
           this.router.navigate(['travlere-type-selection']);
   
       // });

@@ -5,9 +5,9 @@
       <div class="container-fluit">
         <div class="row h-100">
         <div class=" mb-4 d-flex w-100 h-100 flex-wrap " >
-          <div class="card" *ngFor="let item of places"   style="cursor: pointer;width: 300px;">
+          <div class="card" *ngFor="let item of places"   style="cursor: pointer;width: 300px;max-height: 450px;">
                 <div class="" (click)="SelectLocation(item)">
-                    <img [src]="getBase64Image(item)" alt="" class="card-img-top">
+                    <img [src]="getBase64Image(item)" alt="" class="card-img-top" style="max-height: 200px;">
                     <div class="card-body">
                         <h5 class="card-title">{{item.name}}</h5>
                         <p class="card-text">{{item.description}}</p>

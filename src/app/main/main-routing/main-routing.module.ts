@@ -15,7 +15,7 @@ const routes:Routes =[
   {path:'',component:MainComponent,children:[
     {path:'',component:HomeComponent},
     {path:'tourism-details',component:LocationDetailsComponent,canActivate:[CategoryCanActivate]},
-    {path:'category',component:CategoryComponent},
+    {path:'category',component:CategoryComponent,canActivate:[CategoryCanActivate]},
     {path:'type-selection',component:SelectTourismTypeComponent},
     {path:'who-selection',component:SelectWhoComingComponent},
     {path:'travlere-type-selection',component:SelectTravelerTypeComponent},

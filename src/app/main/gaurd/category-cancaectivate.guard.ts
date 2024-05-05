@@ -21,6 +21,7 @@ export class CategoryCanActivate implements CanActivate{
                   return true; // Allow navigation
                 } else {
                   // Redirect to a different route if not authorized
+                  //this.router.navigate(['travlere-type-selection']);
                   return this.router.createUrlTree(['/auth', 'login']);
                 }
               })

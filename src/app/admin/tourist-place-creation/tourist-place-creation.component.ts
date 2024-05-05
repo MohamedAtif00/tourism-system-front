@@ -125,7 +125,7 @@ export class TouristPlaceCreationComponent {
         (response:any) => {
           console.log('Tourism place created successfully:', response);
           // Reset the form
-          
+          alert('Tourism place created successfully')
         },
         (error:any) => {
           console.error('Error creating tourism place:', error);

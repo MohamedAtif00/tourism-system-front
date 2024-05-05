@@ -3,6 +3,7 @@ import { TourismLocationService } from '../service/tourism-location.service';
 import { TourismLocation } from 'src/app/admin/model/create-tourism-location.request';
 import { AuthService } from 'src/app/authentication/service/auth.service';
 import { Router } from '@angular/router';
+import { SelecttionService } from 'src/app/Core/service/selection.service';
 
 @Component({
   selector: 'app-category',
@@ -14,28 +15,39 @@ export class CategoryComponent implements OnInit{
 
   places!:TourismLocation[];
   
-  constructor(private tourismServ:TourismLocationService,private authServ:AuthService,private router:Router){}
+  constructor(private tourismServ:TourismLocationService,private authServ:AuthService,private router:Router,private selection:SelecttionService){}
 
   
   ngOnInit(): void {
-    this.authServ.AllowAccessToken().subscribe(data=>{
-
-      console.log(this.authServ.GetToken());
-      
-      this.tourismServ.GetAll(this.authServ.user.tourismType).subscribe(data=>{
+    console.log('category');
+    
+    if(this.authServ.user)
+    {
+      this.authServ.AllowAccessToken().subscribe(data=>{
   
-        console.log(data);
-        console.log(data.value);
+  
+        console.log(this.authServ.GetToken());
+        console.log('befor',this.selection.selected);
         
-        if(data.value)
-          this.places = data.value;
-          console.log(this.places);
-  
-  
+        
+        this.tourismServ.GetAll(this.selection.selected).subscribe(data=>{
+    
+          console.log(data);
+          console.log(data.value);
           
-      });
+          if(data.value)
+            this.places = data.value;
+            console.log(this.places);
+    
+    
+            
+        });
+  
+      })
 
-    })
+    }
+
+
   }
   getBase64Image(place:TourismLocation) {
     return 'data:image/jpeg;base64,' + place?.file;
